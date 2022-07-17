@@ -26,7 +26,7 @@ if __name__ == '__main__':
         if menu == '1':
             print(create_folder(input('Введите название папки: ')))
         elif menu == '2':
-            delete_file_folder()
+            print(delete_file_folder(input('Введите имя удаляемого файла или папки:')))
         elif menu == '3':
             copy_file_folder()
         elif menu == '4':

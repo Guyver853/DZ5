@@ -9,8 +9,7 @@ def create_folder(folder_name): # - создать папку
         return 'Папка с таким именем уже существует - пожалуйста, придумайте другое имя!'
 
 
-def delete_file_folder(): # - удалить (файл/папку)
-    del_name = input('Введите имя удаляемого файла или папки:')
+def delete_file_folder(del_name): # - удалить (файл/папку)
     while os.path.exists(del_name) != True:
         print('Такого файла/папки не существует, введите другое название!')
         del_name = input('Введите имя удаляемого файла или папки:')
@@ -51,7 +50,7 @@ def copy_file_folder(): # - копировать (файл/папку)
 def view_content(smena): # - смена рабочей директории (*необязательный пункт)
     if os.path.exists(smena): # После ввода - проверка, существует ли данная директория
         os.chdir(smena) # Смена
-        return 'Вы перешли в директорию: os.getcwd()'
+        return os.getcwd()
     else:
         return 'Такой директории не существует! Попробуйте еще раз.'
 
