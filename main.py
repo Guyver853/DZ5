@@ -20,6 +20,7 @@ if __name__ == '__main__':
         print('10. Викторина "Дни рождения"')
         print('11. Смена рабочей директории')
         print('12. Найти все csv файлы, которые есть в этой директории')
+        print('13. Сохранить содержимое рабочей директории в файл')
         print('0. Выход')
 
         menu = input('Выберите цифру пункта меню: ')
@@ -49,6 +50,8 @@ if __name__ == '__main__':
         elif menu == '12':
             for files in glob2.glob("*.csv"):
                 print(files)
+        elif menu =='13':
+            print(save_listdir())
         elif menu == '0':
             break
         else:

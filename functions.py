@@ -1,5 +1,6 @@
 import os
 import shutil
+import json
 
 def create_folder(folder_name): # - создать папку
     if not os.path.exists(folder_name): #  если не существует  файл (или папка)
@@ -53,6 +54,28 @@ def view_content(smena): # - смена рабочей директории (*н
         return os.getcwd()
     else:
         return 'Такой директории не существует! Попробуйте еще раз.'
+
+
+def save_listdir():
+    f_listdir = {
+        'files': [],
+        'dirs': [],
+    }
+    d_l = os.listdir(os.getcwd())
+    for i in d_l:
+        if os.path.isfile(i):
+            f_listdir['files'].append(i)
+        else:
+            f_listdir['dirs'].append(i)
+
+    with open('listdir', 'w', encoding='utf-8') as f:
+        f.write(json.dumps(f_listdir))
+    with open('listdir', 'r', encoding='utf-8') as f:
+        if json.load(f) == f_listdir:
+            return 'Содержимое директории успешно записано в файл listdir'
+        else:
+            return 'Ошибка сохранения в файл'
+
 
 
 
