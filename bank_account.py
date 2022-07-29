@@ -1,7 +1,10 @@
 def bank_account ():
     from os import path
     import json
+    from decorators import print_info_and_save_to_file
 
+
+    @print_info_and_save_to_file
     def all_summa (account_history, summa):
         while not summa.isnumeric():
             input('\nВведите сумму пополнения. ВНИМАНИЕ! Сумма вводится только целым числом: ')
@@ -10,6 +13,8 @@ def bank_account ():
         print(f"Сумма на вашем счете: {account_history['all_summa']} р.")
         return account_history
 
+
+    @print_info_and_save_to_file
     def s_pokupki (account_history, summa):
 
         while not summa.isnumeric():
@@ -25,6 +30,8 @@ def bank_account ():
 
         return account_history
 
+
+    @print_info_and_save_to_file
     def history_shopping(account_history):
         if len(account_history) > 1:
             print('\nИстория покупок:')
